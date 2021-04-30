@@ -1,16 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Routes from '../src/Router/Router'
-class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <Routes />
+import * as React from "react";
+import "./styles.css";
+import {A} from './components/context';
 
-      </div>
-    );
-  }
+export default function App() {
+  return (
+    <div className="App">
+      <A/>
+    </div>
+  );
 }
-
-export default App;
