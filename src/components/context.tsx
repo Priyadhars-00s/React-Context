@@ -1,38 +1,60 @@
 import * as React from "react";
-import { ThemeContext } from "./theme-context";
+import { ThemeContext, useThemeContext } from "./theme-context";
 
-const D = () => (
-  <ThemeContext.Consumer>
-    {value => <h4 style={{ color: value.color }}>D component</h4>}
-  </ThemeContext.Consumer>
+export const D = () => {
+    const {color, setColor}=useThemeContext();
+  React.useEffect(()=>
+  {setColor("Glitter")},[color]
+  ) 
+  return (
+    <div>
+   <h4 >D component</h4>
+   </div>
+  
 );
+  };
 
-const C = () => (
-  <>
-    <h4 >C component</h4>
-    <D />
-  </>
-);
+export const C = () => {
+  const {color, setColor}=useThemeContext();
+  console.log ("Inside C",color)
+  React.useEffect(()=>
+  {setColor("Blue")},[]
+  ) 
+  // React.useEffect(()=>
+  // {setColor("Brown")},[color]
+  // ) 
+  return (
+<div>
+     <h4 style={{color}}>C component</h4>
+     <button onClick={() =>{setColor("Yellow")}}> Change Theme</button>   
+     <section>
+    <button aria-pressed="true">👍</button>
+    <button aria-pressed="false">👎</button>
+    </section>
+      </div>
+  );
+};
 
-const B = () => (
-  <ThemeContext.Consumer>
-    {value => (
-      <>
-        <h4>B Component</h4>
-        <button onClick={() => value.setColor("red")}>Change Theme</button>
-      </>
-    )}
-  </ThemeContext.Consumer>
-);
+export const B = () => {
+  const {color, setColor}=useThemeContext();
+   console.log ("Inside B",color)
+  return (
+<div>
+     <h4 >B component</h4>
+           
+      </div>
+  );
+};
 
 export const A = () => {
-  const [color, setColor] = React.useState("green");
+  const {color, setColor}=useThemeContext();
+   console.log ("Inside A",color)
   return (
-    <ThemeContext.Provider value={{ color, setColor }}>
-      <h4 >A component</h4>
-      <B />
-      <C />
-    </ThemeContext.Provider>
+    <div>
+     <h4  >A component</h4>
+     {/* <button onClick = {value.setColor("Pink")}>Change Theme</button> */}
+      
+      </div>
   );
 };
 
