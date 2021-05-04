@@ -1,24 +1,24 @@
 import React from 'react';
 import Body from './Body';
-import {render} from '@testing-library/react';
+import {fireEvent, render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
 describe("This suit is to test the Body component", ()=>{
     test('Snapshot of Body', () => {
         const {asFragment} = render(<Body title="hello world"/>);
         expect(asFragment()).toMatchSnapshot()
-    });   
-    
+    });  
+
     test("finding title", ()=>{
-        const {getByText} = render(<Body title="Jay Rocks"/>);
-        expect(getByText("Jay Rocks")).toBeInTheDocument()
+        const {getByText} = render(<Body title="hello world"/>);
+        expect(getByText("hello world")).toBeInTheDocument()
     })
 
     test("finding title with TestId", ()=>{
-        const {getByTestId} = render(<Body title="Jay Rocks"/>);
-        expect(getByTestId("header")).toHaveTextContent("Jay Roc")
+        const {getByTestId} = render(<Body title="hello world"/>);
+        expect(getByTestId("header")).toHaveTextContent("hello world")
         //exact match
-        expect(getByTestId("header")).toHaveTextContent(/^Jay Rocks$/)
+        expect(getByTestId("header")).toHaveTextContent(/^hello world$/)
       })
 
       test("check Counter initial value", ()=>{
@@ -29,7 +29,7 @@ describe("This suit is to test the Body component", ()=>{
       test("check Counter value after a tap", ()=>{
         const {getByTestId} = render(<Body title="I Love Kavinie"/>);
         const button = getByTestId("button");
-        userEvent.click(button)
+        fireEvent.click(button)
         expect(getByTestId("counter")).toHaveTextContent("1")
       })
 

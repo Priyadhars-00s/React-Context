@@ -8,7 +8,7 @@ const Body = ({title}:any) => {
         setCount(count+1)
     }
     return (
-        <div>
+        <div role="dialog">
             <h1 data-testid="header">{title}</h1>
             <p data-testid="counter">{count}</p>
             <button type="button" onClick={handleClick} data-testid="button">Tap Me</button>

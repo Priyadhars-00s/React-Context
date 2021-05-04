@@ -11,19 +11,23 @@ const Welcome = (props:any) => {
   const handleChange = (event:any) => {
     setValues({ ...values, [event.target.name]: event.target.value })
   }
+  const handleSubmit = (event:any) => {
+  }
+
 console.log(props);
   return (
-    <div>
+    <div role="dailog">
       <h1>
         Welcome, {values.firstName} {values.lastName}
       </h1>
 
-      <form name="userName">
+      <form onSubmit={handleSubmit} name="userName">
         <label>
           First Name
           <input
             value={values.firstName}
             name="firstName"
+            placeholder="firstName"
             onChange={handleChange}
           />
         </label>
@@ -33,13 +37,18 @@ console.log(props);
           <input
             value={values.lastName}
             name="lastName"
+            placeholder="lastName"
             onChange={handleChange}
           />
         </label>
+        <button aria-pressed="true" name="submit" data-testid="button">Submit</button>
+        <button aria-pressed="false" name="submit" data-testid="button">NotSubmit</button>
       </form>
     </div>
   )
 }
 
 export default Welcome
+
+
 

@@ -5,22 +5,22 @@ import {ThemeContextProvider} from './components/theme-context'
 import Welcome from './components/Fetch'
 import Body from './components/Body';
 export default function App() {
-  return (
-
-  
-   <div data-testid="custom-element" >
-    <ThemeContextProvider>
-      <A/>
-      <B/>
-      <C/>
-      <D/>
-      <Welcome /> 
-      <Body />
+      return (
+        <div data-testid="custom-element">
+      <ThemeContextProvider>
+       <A/>
+       <B/>
+       <C/>
+       <D/>
+       <Welcome /> 
+       <Body title="Hello world"/>
       </ThemeContextProvider>
-    </div>
-    
-  );
-}
+        </div>
+      );
+    }
+
+
+
 
   
 
