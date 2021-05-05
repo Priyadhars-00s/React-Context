@@ -3,7 +3,11 @@ import "./styles.css";
 import {A,B,C, D} from './components/context';
 import {ThemeContextProvider} from './components/theme-context'
 import Welcome from './components/Fetch'
-import Body from './components/Body';
+import Body from "./components/Body";
+import Fetch from "./components/Example";
+import Example from './components/Autosuggest'
+
+
 export default function App() {
       return (
         <div data-testid="custom-element">
@@ -12,9 +16,12 @@ export default function App() {
        <B/>
        <C/>
        <D/>
-       <Welcome /> 
-       <Body title="Hello world"/>
-      </ThemeContextProvider>
+       <Welcome  /> 
+      <Body title="Hello World"/> 
+       <Fetch/>
+       <Example  />
+       
+          </ThemeContextProvider>
         </div>
       );
     }

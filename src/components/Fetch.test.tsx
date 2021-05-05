@@ -14,17 +14,23 @@ test('has correct input value', () => {
  
     test('has correct placeholder value', () => {
       render(<Welcome placeholder="firstName" />)
-      expect(screen.getByPlaceholderText('firstName'))
+      expect(screen.getByPlaceholderText('firstName')).toBeInTheDocument()
       })
   
-   
-    test("check Button click", ()=>{
-      const {getByTestId} = render(<Welcome />);
-      // const button = getByTestId("button");
-      fireEvent.click(screen.getByTestId("button"))
-      expect(screen.getByRole("dialog", { pressed: true }))
-    })
+      test("check button clicked ", ()=>{
+        render(<Welcome />);
+        fireEvent.click(screen.getByText(/Submit/i))
+        expect(screen.getByTestId("button")).toBeInTheDocument()
+      })
+
+      test("check button clicked ", ()=>{
+        render(<Welcome />);
+        fireEvent.click(screen.getByTestId('button'))
+        expect(screen.getByRole('button', { pressed: true }))
+      })
+
   
+      
     test('calls await when clicked',  async () => {
     const handleSubmit = jest.fn()
     render(<button onClick={handleSubmit}>Submit</button>)

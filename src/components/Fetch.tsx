@@ -16,7 +16,7 @@ const Welcome = (props:any) => {
 
 console.log(props);
   return (
-    <div role="dailog">
+    <div >
       <h1>
         Welcome, {values.firstName} {values.lastName}
       </h1>
@@ -41,8 +41,9 @@ console.log(props);
             onChange={handleChange}
           />
         </label>
+        <div role="button">
         <button aria-pressed="true" name="submit" data-testid="button">Submit</button>
-        <button aria-pressed="false" name="submit" data-testid="button">NotSubmit</button>
+               </div>
       </form>
     </div>
   )

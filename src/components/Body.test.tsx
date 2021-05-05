@@ -1,4 +1,4 @@
-import React from 'react';
+
 import Body from './Body';
 import {fireEvent, render} from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
