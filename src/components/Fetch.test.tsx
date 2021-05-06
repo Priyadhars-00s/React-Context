@@ -1,4 +1,4 @@
-import React from 'react'
+
 import { render, screen, fireEvent,waitFor, getByRole} from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import Welcome from './Fetch'

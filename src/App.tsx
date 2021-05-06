@@ -6,6 +6,7 @@ import Welcome from './components/Fetch'
 import Body from "./components/Body";
 import Fetch from "./components/Example";
 import Example from './components/Autosuggest'
+import Function from './components/Functions'
 
 
 export default function App() {
@@ -19,8 +20,8 @@ export default function App() {
        <Welcome  /> 
       <Body title="Hello World"/> 
        <Fetch/>
-       <Example  />
-       
+        <Example  /> 
+     <Function />
           </ThemeContextProvider>
         </div>
       );
