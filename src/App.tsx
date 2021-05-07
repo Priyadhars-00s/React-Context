@@ -6,10 +6,14 @@ import Welcome from './components/Fetch'
 import Body from "./components/Body";
 import Fetch from "./components/Example";
 import Example from './components/Autosuggest'
-import Function from './components/Functions'
-
+import {Function} from './components/Functions'
 
 export default function App() {
+   
+  //  const onSubmit = (e:any) => {
+  //   // `e` is the data that was passed through from the `Autosuggest` event.
+  //   console.log(e);
+  // }
       return (
         <div data-testid="custom-element">
       <ThemeContextProvider>
@@ -20,7 +24,7 @@ export default function App() {
        <Welcome  /> 
       <Body title="Hello World"/> 
        <Fetch/>
-        <Example  /> 
+       <Example />
      <Function />
           </ThemeContextProvider>
         </div>

@@ -116,15 +116,15 @@ class Example extends React.Component {
     // and they are initially empty because the Autosuggest is closed.
     this.state = {
       value: '',
-      suggestions: []
+      suggestions: [],
+     
     };
   }
-
   onChange = (event:any, { newValue }:any) => {
     this.setState({
       value: newValue
     });
-  };
+      };
 
   // Autosuggest will call this function every time you need to update suggestions.
   // You already implemented this logic above, so just use it.
@@ -140,10 +140,22 @@ class Example extends React.Component {
       suggestions: []
     });
   };
-
+  // getAutosuggestInput(value:any){
+  //   // Test logging:
+  //   console.log(value);
+  //   this.setState({myfieldname: value})
+  // }
+//   onHandleChange(event:any, value:any){
+//     this.setState({ value });
+//     this.props.getInputData(event, value);
+//   }
+//   getAutosuggestInput = (event, value) => {
+//     //add your logic here
+// }
   render() {
     const { value, suggestions }:any = this.state;
 
+    
 
     // Autosuggest will pass through all these props to the input.
     const inputProps = {
@@ -151,13 +163,17 @@ class Example extends React.Component {
       placeholder: 'Type a programming language',
       value,
       suggestions,
-      onChange
-    };
+      onChange:this.onChange,
+      //getAutosuggestInput:this.getAutosuggestInput
+    }; 
+    // const get = fetch(inputProps)
 console .log ("Value",value,suggestions)
 console .log ("inputProps",inputProps)
+
+//console .log ("getAutosuggestInput",this.getAutosuggestInput)
     // Finally, render it!
     return (
-      <Autosuggest
+      <Autosuggest 
         suggestions={suggestions}
         onSuggestionsFetchRequested={this.onSuggestionsFetchRequested}
         onSuggestionsClearRequested={this.onSuggestionsClearRequested}
